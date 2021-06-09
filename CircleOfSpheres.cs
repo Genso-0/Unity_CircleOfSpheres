@@ -4,7 +4,7 @@ public class CircleOfSpheres : MonoBehaviour
 { 
     public float pointSize = .1f;
     public int totalPoints;
-    public const float circleInRadians = 6.28319f;
+    public const float twoPi = 6.28319f;
     void OnDrawGizmos()
     { 
         var segmentWidth = GetSegmentWidth(totalPoints);
@@ -24,10 +24,10 @@ public class CircleOfSpheres : MonoBehaviour
     private float GetRadius(int totalPoints, float nodeSize)
     {
         //From the formula LengthOfCircle = radius * theta; -> radius = lengthOfCircle / theta -> radius = (totalPoints * pointSize)/360degrees 
-        return (totalPoints * (nodeSize * 2)) / circleInRadians; 
+        return (totalPoints * (nodeSize * 2)) / twoPi; 
     } 
     private float GetSegmentWidth(int count)
     {
-        return Mathf.PI * 2f / count;
+        return twoPi / count;
     }
 }
